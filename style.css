@@ -1,18 +1,21 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     max-width: 960px;
     margin: auto;
+    text-align: left; /* Adjusted to align text to the left */
 }
 
 h1 {
     font-size: 3em;
     letter-spacing: .6em;
     padding-top: 1em;
+
 }
 
 h2 {
     font-size: 2.5em;
+    text-align: left;
 }
 
 h3 {
@@ -28,6 +31,7 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-gap: 1em;
     margin-top: 3em;
+    text-align: left;
 }
 
 header {
@@ -36,27 +40,26 @@ header {
 }
 
 section {
-    margin: auto 1em 4em 2em;
+    color: #00a86b;
+    text-align: left;
 }
 
 i {
-    margin-right: .5em;
+    text-align: left;
 }
 
 p {
     font-size: 2em;
-    margin: .2em auto;
-    color: gray;
+    text-align: left;
 }
 
 ul, li {
     font-size: 1.5em;
-    color: gray;
+    text-align: left;
 }
 
 hr {
     border: none;
-    background-color: lightgray;
     height: 1px;
 }
 
@@ -64,11 +67,181 @@ h1, h2, h3 {
     font-weight: 500;
     margin-bottom: 0;
     padding-bottom: 1em;
-    color: black;
 }
 
-@media (min-width: 1000px){
-    #mainLeft {
-        border-right: 1px solid lightgray;
+nav ul {
+    list-style-type: none; /* Remove list bullets */
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Center-align navigation links */
+}
+
+nav li {
+    display: inline-block; /* Display navigation items horizontally */
+    margin-right: 20px; /* Add spacing between navigation items */
+}
+
+nav a {
+    color: 0078d4;
+    text-decoration: none; /* Remove underlines from links */
+    font-size: 16px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+nav a:hover {
+    color: #005eaa; /* Change text color on hover */
+}
+
+/* Styles for screens between 600px and 999px (Tablet) */
+@media (min-width: 600px) and (max-width: 999px) {
+    body {
+        font-size: 14px; /* Increase font size for better readability on tablets */
     }
+}
+
+/* Styles for screens 599px and below (Mobile) */
+@media (max-width: 599px) {
+    body {
+        font-size: 16px; /* Increase font size further for mobile devices */
+    }
+
+    main {
+        grid-template-columns: 1fr; /* Single column layout for better mobile display */
+        grid-gap: 0.5em; /* Reduce spacing between elements for smaller screens */
+    }
+
+    /* You can adjust other styles as needed for mobile devices */
+}
+
+img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* New Color Scheme */
+body {
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Dark gray text */
+}
+
+h1, h2, h3, h4 {
+    color: #0078d4; /* Blue for headings */
+}
+
+/* Links */
+a {
+    color: #00a86b; /* Blue links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Buttons */
+.button {
+    background-color: #0078d4; /* Blue button background */
+    color: #fff; /* White button text */
+}
+
+.button:hover {
+    background-color: #005eaa; /* Darker blue on hover */
+}
+
+/* CSS for dark mode toggle and icons */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #0078d4;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #0078d4;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Hide the sun icon by default */
+#sunIcon {
+    display: none;
+}
+
+/* Show the sun icon when in dark mode */
+input:checked ~ #sunIcon {
+    display: inline;
+}
+
+/* Hide the moon icon when in dark mode */
+input:checked ~ #moonIcon {
+    display: none;
+}
+
+.dark-mode {
+    background-color: #111;
+    color: #fff;
+}
+
+/* CSS for the "Made by" line */
+.made-by {
+    text-align: center; /* Center-align the text */
+    margin-top: 20px; /* Adjust the margin as needed */
+    color: #0078d4; /* Match the color with the color scheme */
+    font-weight: bold;
+}
+
+.made-by p {
+    font-size: 1.5em; /* Increase the font size to 1.5em or adjust as needed */
+    margin: 0; /* Remove any default margin */
+    font-weight: bold;
 }
